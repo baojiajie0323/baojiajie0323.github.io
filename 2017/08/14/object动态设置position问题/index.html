@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="享受不断学习、不断探索的过程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://baojiajie0323.github.io/about/index.html">
+<meta name="description" content="问题描述在使用浏览器视频插件（NPAPI）时，发现窗口句柄会动态变化导致视频浏览失败。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="object动态设置position问题">
+<meta property="og:url" content="https://baojiajie0323.github.io/2017/08/14/object动态设置position问题/index.html">
 <meta property="og:site_name" content="Bao 的博客">
-<meta property="og:description" content="享受不断学习、不断探索的过程">
+<meta property="og:description" content="问题描述在使用浏览器视频插件（NPAPI）时，发现窗口句柄会动态变化导致视频浏览失败。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-02T19:11:17.341Z">
+<meta property="og:updated_time" content="2017-08-14T13:32:47.031Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="享受不断学习、不断探索的过程">
+<meta name="twitter:title" content="object动态设置position问题">
+<meta name="twitter:description" content="问题描述在使用浏览器视频插件（NPAPI）时，发现窗口句柄会动态变化导致视频浏览失败。">
 
 
 
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://baojiajie0323.github.io/about/"/>
+  <link rel="canonical" href="https://baojiajie0323.github.io/2017/08/14/object动态设置position问题/"/>
 
 
 
 
 
-  <title>about | Bao 的博客</title>
+  <title>object动态设置position问题 | Bao 的博客</title>
   
 
 
@@ -260,33 +260,162 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://baojiajie0323.github.io/2017/08/14/object动态设置position问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bao 的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">about</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">object动态设置position问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T19:35:45+08:00">
+                2017-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常踩坑/" itemprop="url" rel="index">
+                    <span itemprop="name">日常踩坑</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在使用浏览器视频插件（NPAPI）时，发现窗口句柄会动态变化导致视频浏览失败。<br><a id="more"></a></p>
+<h3 id="问题定位"><a href="#问题定位" class="headerlink" title="问题定位"></a>问题定位</h3><p>在抓包等一些列问题排查后，发现是由于窗口句柄会动态变化导致，也就是Npapi中的窗口会自动销毁并重新创建。仔细查看代码后发现是由于在Js代码中动态设置了object 的style的position属性导致。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">plugin.style.position = &apos;absolute&apos;;</div></pre></td></tr></table></figure></p>
+<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>把动态设置属性的地方写到css中即可。</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/10/2D-3D-地图编辑器开发/" rel="next" title="2D/3D 地图编辑器开发">
+                <i class="fa fa-chevron-left"></i> 2D/3D 地图编辑器开发
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -319,8 +448,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -373,6 +511,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题定位"><span class="nav-number">2.</span> <span class="nav-text">问题定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题解决"><span class="nav-number">3.</span> <span class="nav-text">问题解决</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -493,10 +647,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
